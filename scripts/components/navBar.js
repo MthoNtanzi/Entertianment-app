@@ -23,16 +23,34 @@ const iconCreate =(navIconSrc, iconURL)=>{
 const navBar =()=>{
     const navBar = document.createElement('nav');
 
-    const homeLink = iconCreate("/assets/icon-nav-home.svg", "/");
+    const logoLink = iconCreate("/assets/logo.svg", "/");
 
 
 
-    navBar.appendChild(homeLink);
+    navBar.appendChild(logoLink);
 
     //ul
-        //li * 3
+    const navLinks = document.createElement('ul');
+    //li * 4
+    const homeLink = iconCreate("/assets/icon-nav-home.svg", "/");
+    const moviesLink = iconCreate("/assets/icon-nav-movies.svg", "/");
+    const tvSeriesLink = iconCreate("/assets/icon-nav-tv-series.svg", "/");
+    const bookmarkLink = iconCreate("/assets/icon-nav-bookmark.svg", "/");
+    
+    const listItems = [homeLink, moviesLink, tvSeriesLink, bookmarkLink];
+    listItems.forEach(link => {
+        
+        const li = document.createElement("li");
+        li.appendChild(link)
+        navLinks.appendChild(li);
+    });
+
+    navBar.appendChild(navLinks);
     
     //profile
+
+    const profileLink = iconCreate("/assets/image-avatar.png", "/");
+    navBar.appendChild(profileLink);
     
     return navBar
 }
