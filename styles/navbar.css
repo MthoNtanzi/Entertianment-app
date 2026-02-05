@@ -1,0 +1,18 @@
+#navBar{
+    background-color: #161D2F;
+    width: fit-content;
+    padding: 1em;
+    border-radius: 15px;
+}
+
+#nav-items{
+    list-style-type: none;
+    margin: auto;
+}
+
+.profileImg img{
+    width: 40px;
+    height: 40px;
+    border: 1px white solid;
+    border-radius: 50%;
+}

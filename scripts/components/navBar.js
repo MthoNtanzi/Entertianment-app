@@ -4,7 +4,7 @@
  * @param { string } navIconSrc 
  * @return void
  */
-const iconCreate =(navIconSrc, iconURL)=>{
+const iconCreate =(navIconSrc, iconURL, imgClass = '')=>{
     //Create the link and link it to the URL given
     const imageLink = document.createElement('a');
     imageLink.href = iconURL
@@ -22,6 +22,7 @@ const iconCreate =(navIconSrc, iconURL)=>{
 
 const navBar =()=>{
     const navBar = document.createElement('nav');
+    navBar.id = 'navBar';
 
     const logoLink = iconCreate("/assets/logo.svg", "/");
 
@@ -31,6 +32,7 @@ const navBar =()=>{
 
     //ul
     const navLinks = document.createElement('ul');
+    navLinks.id = 'nav-items';
     //li * 4
     const homeLink = iconCreate("/assets/icon-nav-home.svg", "/");
     const moviesLink = iconCreate("/assets/icon-nav-movies.svg", "/");
@@ -42,6 +44,7 @@ const navBar =()=>{
         
         const li = document.createElement("li");
         li.appendChild(link)
+        li.classList.add('nav-items');
         navLinks.appendChild(li);
     });
 
@@ -50,6 +53,7 @@ const navBar =()=>{
     //profile
 
     const profileLink = iconCreate("/assets/image-avatar.png", "/");
+    profileLink.classList.add('profileImg')
     navBar.appendChild(profileLink);
     
     return navBar

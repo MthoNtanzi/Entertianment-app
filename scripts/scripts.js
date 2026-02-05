@@ -1,8 +1,12 @@
 import navBar from "./components/navBar.js";
 
 const bodyElement = document.querySelector('body');
+const mainContent = document.createElement('main');
+mainContent.innerText = "Hello";
 
-bodyElement.prepend(navBar());
+bodyElement.appendChild(navBar());
+bodyElement.appendChild(mainContent);
+
 
 function createHeadings(headingName){
     const userHeading = document.createElement(`h1`);
