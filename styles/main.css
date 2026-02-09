@@ -7,3 +7,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: #10141e;
+    display: flex;
+    padding: 1em;
+}
