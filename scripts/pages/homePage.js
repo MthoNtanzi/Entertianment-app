@@ -1,16 +1,11 @@
 import createHeadings from '../components/functions.js';
+import searchBar from '../components/searchBar.js';
 
 
 const homePage = () => {
     const main = document.createElement('main');
 
-    const searchBar = document.createElement('div');
-    searchBar.innerHTML = `
-        <img src='/assets/icon-search.svg' alt='search'/>
-        <input type='text' id='searchVal' placeholder='Search for movies or TV series'/>
-    `;
-
-    main.appendChild(searchBar);
+    main.appendChild(searchBar());
     createHeadings("Trending", main);
     createHeadings("Recommended for you", main);
 

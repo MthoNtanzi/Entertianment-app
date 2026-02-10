@@ -13,4 +13,5 @@ body{
     background-color: #10141e;
     display: flex;
     padding: 1em;
+    min-height: 100vh;
 }
