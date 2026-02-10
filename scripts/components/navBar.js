@@ -13,6 +13,10 @@ const iconCreate =(navIconSrc, iconURL, imgClass = '')=>{
     const navIcon = document.createElement('img');
     navIcon.src = navIconSrc;
     navIcon.alt = "Navigation link";
+
+    if (imgClass) {
+        navIcon.classList.add(imgClass);
+    }
     
     imageLink.appendChild(navIcon);
     return(imageLink);
@@ -24,8 +28,8 @@ const navBar =()=>{
     const navBar = document.createElement('nav');
     navBar.id = 'navBar';
 
-    const logoLink = iconCreate("/assets/logo.svg", "/");
-
+    const logoLink = iconCreate("/assets/logo.svg", "/", "homeImg");
+    logoLink.classList.add("logoLink")
 
 
     navBar.appendChild(logoLink);
@@ -44,7 +48,7 @@ const navBar =()=>{
         
         const li = document.createElement("li");
         li.appendChild(link)
-        li.classList.add('nav-items');
+        li.classList.add('list-nav-items');
         navLinks.appendChild(li);
     });
 
