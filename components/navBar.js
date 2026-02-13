@@ -4,10 +4,15 @@
  * @param { string } navIconSrc 
  * @return void
  */
-const iconCreate =(navIconSrc, iconURL, imgClass = '')=>{
+const iconCreate =(navIconSrc, route, onClick, imgClass = '')=>{
     //Create the link and link it to the URL given
     const imageLink = document.createElement('a');
-    imageLink.href = iconURL
+    imageLink.href = route;
+
+    imageLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (onClick) onClick(route);
+    })
     
     // Create icons for navigation
     const navIcon = document.createElement('img');
@@ -24,13 +29,12 @@ const iconCreate =(navIconSrc, iconURL, imgClass = '')=>{
 
 
 
-const navBar =()=>{
+const navBar =(onNavigate)=>{
     const navBar = document.createElement('nav');
     navBar.id = 'navBar';
 
-    const logoLink = iconCreate("/assets/logo.svg", "/", "homeImg");
+    const logoLink = iconCreate("/assets/logo.svg", "/", onNavigate, "homeImg");
     logoLink.classList.add("logoLink")
-
 
     navBar.appendChild(logoLink);
 
@@ -38,10 +42,10 @@ const navBar =()=>{
     const navLinks = document.createElement('ul');
     navLinks.id = 'nav-items';
     //li * 4
-    const homeLink = iconCreate("/assets/icon-nav-home.svg", "/");
-    const moviesLink = iconCreate("/assets/icon-nav-movies.svg", "/");
-    const tvSeriesLink = iconCreate("/assets/icon-nav-tv-series.svg", "/");
-    const bookmarkLink = iconCreate("/assets/icon-nav-bookmark.svg", "/");
+    const homeLink = iconCreate("/assets/icon-nav-home.svg", "/", onNavigate);
+    const moviesLink = iconCreate("/assets/icon-nav-movies.svg", "/movies", onNavigate);
+    const tvSeriesLink = iconCreate("/assets/icon-nav-tv-series.svg", "/tv-series", onNavigate);
+    const bookmarkLink = iconCreate("/assets/icon-nav-bookmark.svg", "/bookmarks", onNavigate);
     
     const listItems = [homeLink, moviesLink, tvSeriesLink, bookmarkLink];
     listItems.forEach(link => {
@@ -56,7 +60,7 @@ const navBar =()=>{
     
     //profile
 
-    const profileLink = iconCreate("/assets/image-avatar.png", "/");
+    const profileLink = iconCreate("/assets/image-avatar.png", "/", onNavigate);
     profileLink.classList.add('profileImg')
     navBar.appendChild(profileLink);
     
