@@ -21,6 +21,16 @@
     margin-top: -300%;
     margin-inline: auto;
 }
+
+#nav-items a svg {
+    fill: #5a698f;
+    transition: color 0.3s ease;;
+}
+
+#nav-items a.active svg{
+    fill: white; /* active icon color */
+}
+
 .list-nav-items{
     padding: 5px;
     margin-inline: auto;
