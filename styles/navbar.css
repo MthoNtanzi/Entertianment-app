@@ -27,6 +27,11 @@
     transition: color 0.3s ease;;
 }
 
+#nav-items a svg:hover {
+    fill: #fc4747;
+    transition: color 0.3s ease;;
+}
+
 #nav-items a.active svg{
     fill: white; /* active icon color */
 }
