@@ -21,3 +21,7 @@ body{
     padding: 1em;
     min-height: 100vh;
 }
+
+main{
+    padding: 20px;
+}

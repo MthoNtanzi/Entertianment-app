@@ -1,0 +1,17 @@
+.movieImg{
+    padding: 20px;
+    height: 174px;
+    max-width: 280px;
+    border-radius: 10px;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.movieImg .bookmarkImgWrapper{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}

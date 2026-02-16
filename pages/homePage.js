@@ -1,6 +1,7 @@
 import createHeadings from '../components/functions.js';
 import searchBar from '../components/searchBar.js';
 import trendingCard from '../components/trendingCard.js';
+import movieCard from '../components/movieCard.js';
 
 const fakeMovie = {
     title: "Beyond Earth",
@@ -22,6 +23,7 @@ const homePage = () => {
 
     createHeadings("Recommended for you", main);
     // Movie Cards
+    main.appendChild(movieCard(fakeMovie))
 
     return main
 }
