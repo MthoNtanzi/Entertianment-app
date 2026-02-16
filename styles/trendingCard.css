@@ -1,0 +1,30 @@
+.trendingCardContainer{
+    padding: 1em;
+    border-radius: 15px;
+    height: 230px;
+    width: 470px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bookmarkImgWrapper {
+    align-self: flex-end;
+    padding: 8px;
+    border-radius: 25px;
+    background-color: #5A698F;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookmarkImg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
