@@ -3,6 +3,7 @@
     width: fit-content;
     padding: 1em;
     border-radius: 15px;
+    height: 95vh;
     max-height: 960px;
 
     display: flex;

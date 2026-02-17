@@ -1,0 +1,57 @@
+main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent main from creating horizontal scroll */
+}
+
+#content {
+    flex: 1; /* Take remaining space */
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ============  Trending Container ============ */
+
+.trendingMovContainer{
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%; 
+    padding-block: 12px;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+
+    flex-wrap: nowrap;
+}
+
+.trendingMovContainer > * {
+    flex-shrink: 0;
+}
+
+/* Optional: Style the scrollbar for better appearance */
+.trendingMovContainer::-webkit-scrollbar {
+    height: 6px; /* Height of horizontal scrollbar */
+}
+
+.trendingMovContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.trendingMovContainer::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.trendingMovContainer::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ============  Movies Container ============ */
+.movieCardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}

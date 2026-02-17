@@ -17,13 +17,20 @@ const homePage = () => {
     const main = document.createElement('main');
 
     main.appendChild(searchBar());
-    createHeadings("Trending", main);
-    // Trending Card
-    main.appendChild(trendingCard(fakeMovie));
 
-    createHeadings("Recommended for you", main);
+    // Trending Card
+    const trendingMovDiv = document.createElement('div');
+    trendingMovDiv.classList.add('trendingMovContainer');
+    createHeadings("Trending", main);
+    trendingMovDiv.appendChild(trendingCard(fakeMovie));
+    main.appendChild(trendingMovDiv);
+
     // Movie Cards
-    main.appendChild(movieCard(fakeMovie))
+    const movieCardsContainer = document.createElement('div');
+    movieCardsContainer.classList.add('movieCardsContainer');
+    createHeadings("Recommended for you", main);
+    movieCardsContainer.appendChild(movieCard(fakeMovie));
+    main.appendChild(movieCardsContainer);
 
     return main
 }

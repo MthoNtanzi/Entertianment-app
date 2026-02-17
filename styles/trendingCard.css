@@ -3,6 +3,7 @@
     border-radius: 15px;
     height: 230px;
     width: 470px;
+    cursor: pointer;
 
     display: flex;
     flex-direction: column;
