@@ -1,6 +1,7 @@
-export default function createHeadings(headingName, parentName){
+export default function createHeadings(headingName){
     const userHeading = document.createElement(`h1`);
     
     userHeading.innerText = headingName;
-    parentName.appendChild(userHeading);
+
+    return userHeading;
 }

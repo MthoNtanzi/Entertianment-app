@@ -12,6 +12,9 @@ const fakeMovie = {
     thumbnail: "assets/golfImg.jpg"
 };
 
+const trendingHeading = createHeadings("Trending");
+const recommendedMovHeading = createHeadings("Recommended for you");
+
 
 const homePage = () => {
     const main = document.createElement('main');
@@ -21,14 +24,14 @@ const homePage = () => {
     // Trending Card
     const trendingMovDiv = document.createElement('div');
     trendingMovDiv.classList.add('trendingMovContainer');
-    createHeadings("Trending", main);
+    main.appendChild(trendingHeading);
     trendingMovDiv.appendChild(trendingCard(fakeMovie));
     main.appendChild(trendingMovDiv);
 
     // Movie Cards
     const movieCardsContainer = document.createElement('div');
     movieCardsContainer.classList.add('movieCardsContainer');
-    createHeadings("Recommended for you", main);
+    main.appendChild(recommendedMovHeading);
     movieCardsContainer.appendChild(movieCard(fakeMovie));
     main.appendChild(movieCardsContainer);
 
