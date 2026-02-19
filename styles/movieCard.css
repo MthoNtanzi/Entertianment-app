@@ -1,8 +1,7 @@
 .movieCard{
     cursor: pointer;
-    min-width: 200px;
+    max-width: 270px;
     width: 100%;
-    margin-right: auto;
 }
 
 .movieImg{
