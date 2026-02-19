@@ -1,4 +1,7 @@
+import { navigateTo } from '../router.js';
+
 const movieCard = (item) => {
+    
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('movieCard');
 
@@ -64,6 +67,10 @@ const movieCard = (item) => {
     cardDiv.appendChild(movieDiv);
     cardDiv.appendChild(descriptionContainer);
 
+    cardDiv.addEventListener("click", () => {
+        const id = item.id || item.title.replace(/\s+/g, '-');
+        navigateTo(`/movie/${id}`);
+    });
 
     return cardDiv;
 }

@@ -3,6 +3,8 @@ import moviesPage from "./pages/moviesPage.js"
 import tvSeriesPage from "./pages/tvSeriesPage.js"
 import bookmarkedPage from "./pages/bookmarkedPage.js";
 // import profilePage from "./pages/profile.js";
+import movieDetailPage from './pages/movieDetailPage.js';
+
 
 const routes = {
     '/': homePage,
@@ -40,6 +42,21 @@ const loadPage = (route) => {
     }
     
     contentDiv.innerHTML = '';
+
+    if (route.startsWith('/movie/')) {
+        const id = route.split('/')[2];
+
+        try {
+            const page = movieDetailPage(id);
+            contentDiv.appendChild(page);
+        } catch (error) {
+            console.error('Error loading movie detail:', error);
+            contentDiv.innerHTML = '<div>Movie not found</div>';
+        }
+
+        updateActiveNav(route);
+        return; 
+    }
     
     const pageComponent = routes[route] || routes['/'];
     
