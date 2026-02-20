@@ -4,13 +4,14 @@ import tvSeriesPage from "./pages/tvSeriesPage.js"
 import bookmarkedPage from "./pages/bookmarkedPage.js";
 // import profilePage from "./pages/profile.js";
 import movieDetailPage from './pages/movieDetailPage.js';
+import trendingDetailPage from './pages/trendingMoviePage.js';
 
 
 const routes = {
     '/': homePage,
-    '/movies': moviesPage,
-    '/tv-series': tvSeriesPage,
-    '/bookmarks': bookmarkedPage,
+    // '/movies': moviesPage,
+    // '/tv-series': tvSeriesPage,
+    // '/bookmarks': bookmarkedPage,
     // '/profile': profilePage
 };
 
@@ -33,7 +34,7 @@ export const loadInitialPage = () => {
     loadPage(route);
 }
 
-const loadPage = (route) => {
+const loadPage = async (route) => {
     const contentDiv = document.getElementById('content');
     
     if (!contentDiv) {
@@ -43,27 +44,30 @@ const loadPage = (route) => {
     
     contentDiv.innerHTML = '';
 
-    if (route.startsWith('/movie/')) {
-        const id = route.split('/')[2];
+    const dynamicRoutes = {
+        '/movies/': movieDetailPage,
+        '/trending/': trendingDetailPage
+    };
 
-        try {
-            const page = movieDetailPage(id);
+    for (const prefix in dynamicRoutes) {
+        if (route.startsWith(prefix)) {
+            const id = route.split('/')[2];
+            const page = dynamicRoutes[prefix](id);
             contentDiv.appendChild(page);
-        } catch (error) {
-            console.error('Error loading movie detail:', error);
-            contentDiv.innerHTML = '<div>Movie not found</div>';
+            updateActiveNav(route);
+            return;
         }
-
-        updateActiveNav(route);
-        return; 
     }
+
     
     const pageComponent = routes[route] || routes['/'];
     
     try {
-        const page = pageComponent();
+        const page = await pageComponent();
+        console.log('Page returned:', page);
         if (page) {
             contentDiv.appendChild(page);
+            console.log('Page appended to content div');
         } else {
             console.error('Page component returned nothing for route:', route);
             // Fallback to home page
@@ -84,7 +88,7 @@ window.addEventListener('popstate', (event) => {
 
 const updateActiveNav = (route) => {
     document.querySelectorAll('#nav-items a').forEach(link => {
-        if (link.getAttribute('href') === route) {
+        if (route.startsWith(link.getAttribute('href'))) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');

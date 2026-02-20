@@ -69,7 +69,7 @@ const movieCard = (item) => {
 
     cardDiv.addEventListener("click", () => {
         const id = item.id || item.title.replace(/\s+/g, '-');
-        navigateTo(`/movie/${id}`);
+        navigateTo(`/movies/${id}`);
     });
 
     return cardDiv;

@@ -1,3 +1,5 @@
+import { navigateTo } from '../router.js';
+
 const trendingCard = (item) => {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('trendingCardContainer');
@@ -57,6 +59,12 @@ const trendingCard = (item) => {
 
     cardDiv.appendChild(bookmarkWrapper);
     cardDiv.appendChild(descriptionContainer);
+
+    // For routing
+    cardDiv.addEventListener('click', () => {
+        const id = item.id || item.title.replace(/\s+/g, '-');
+        navigateTo(`/trending/${id}`);
+    });
 
     return cardDiv;
 }

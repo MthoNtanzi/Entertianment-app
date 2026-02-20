@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "title": "Beyond Earth",
     "thumbnail": {
@@ -454,4 +454,6 @@
     "isBookmarked": true,
     "isTrending": false
   }
-]
+];
+
+export default data;
