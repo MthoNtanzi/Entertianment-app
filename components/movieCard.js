@@ -7,7 +7,7 @@ const movieCard = (item) => {
 
     const movieDiv = document.createElement('div');
     movieDiv.classList.add('movieImg');
-    movieDiv.style.backgroundImage = `url('${item.thumbnail}')`;
+    movieDiv.style.backgroundImage = `url('${item.thumbnail.regular.medium}')`;
     
     // Wrapper for the boomkark icon... for styling
     const bookmarkWrapper = document.createElement('div');
@@ -69,7 +69,7 @@ const movieCard = (item) => {
 
     cardDiv.addEventListener("click", () => {
         const id = item.id || item.title.replace(/\s+/g, '-');
-        navigateTo(`/movies/${id}`);
+        navigateTo(`/movies/${item.title}`);
     });
 
     return cardDiv;

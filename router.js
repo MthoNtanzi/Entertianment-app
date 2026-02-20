@@ -4,14 +4,13 @@ import tvSeriesPage from "./pages/tvSeriesPage.js"
 import bookmarkedPage from "./pages/bookmarkedPage.js";
 // import profilePage from "./pages/profile.js";
 import movieDetailPage from './pages/movieDetailPage.js';
-import trendingDetailPage from './pages/trendingMoviePage.js';
 
 
 const routes = {
     '/': homePage,
-    // '/movies': moviesPage,
-    // '/tv-series': tvSeriesPage,
-    // '/bookmarks': bookmarkedPage,
+    '/movies': moviesPage,
+    '/tv-series': tvSeriesPage,
+    '/bookmarks': bookmarkedPage,
     // '/profile': profilePage
 };
 
@@ -43,20 +42,13 @@ const loadPage = async (route) => {
     }
     
     contentDiv.innerHTML = '';
-
-    const dynamicRoutes = {
-        '/movies/': movieDetailPage,
-        '/trending/': trendingDetailPage
-    };
-
-    for (const prefix in dynamicRoutes) {
-        if (route.startsWith(prefix)) {
-            const id = route.split('/')[2];
-            const page = dynamicRoutes[prefix](id);
-            contentDiv.appendChild(page);
-            updateActiveNav(route);
-            return;
-        }
+    
+    if (route.startsWith('/movies/')) {
+        const id = route.split('/')[2];
+        const page = movieDetailPage(id);
+        contentDiv.appendChild(page);
+        updateActiveNav(route);
+        return;
     }
 
     

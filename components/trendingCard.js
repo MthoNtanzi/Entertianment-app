@@ -3,7 +3,7 @@ import { navigateTo } from '../router.js';
 const trendingCard = (item) => {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('trendingCardContainer');
-    cardDiv.style.backgroundImage = `url('${item.thumbnail}')`;
+    cardDiv.style.backgroundImage = `url('${item.thumbnail.trending.large}')`;
 
     // Wrapper for the boomkark icon... for styling
     const bookmarkWrapper = document.createElement('div');
@@ -63,7 +63,7 @@ const trendingCard = (item) => {
     // For routing
     cardDiv.addEventListener('click', () => {
         const id = item.id || item.title.replace(/\s+/g, '-');
-        navigateTo(`/trending/${id}`);
+        navigateTo(`/movies/${item.title}`);
     });
 
     return cardDiv;
