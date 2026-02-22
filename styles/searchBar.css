@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     gap: 5%; 
+    margin-block: 2em;
 }
 
 #searchBar img{

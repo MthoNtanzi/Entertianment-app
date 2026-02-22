@@ -1,4 +1,3 @@
-// api.js
 import data from './data.js';
 
 export const getTrendingContent = () => {
