@@ -15,6 +15,7 @@ const moviesPage = () => {
     movieWrapper.classList.add("movieWrapper");
     console.log(allMovies);
     movieWrapper.appendChild(movieGrid(allMovies));
+    main.appendChild(movieWrapper);
 
 
 
