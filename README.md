@@ -5,11 +5,11 @@ A responsive entertainment web app built with vanilla JavaScript, HTML, and CSS.
 ## 📸 Screenshot
 
 <!-- Add a screenshot of your project here -->
-![Entertainment Web App](./assets/screenshot.png)
+![Entertainment Web App](./preview.jpg)
 
 ## 🔗 Links
 
-- Live Site URL: [Add your live site URL here]
+- Live Site URL: [https://github.com/MthoNtanzi/Entertianment-app]
 - Frontend Mentor Challenge: [Entertainment web app](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X)
 
 ---
@@ -128,5 +128,5 @@ Each UI component is a plain JavaScript function that creates and returns DOM el
 
 ## 👤 Author
 
-<!-- - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- GitHub - [@yourusername](https://github.com/yourusername) -->
+<!-- - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername) -->
+ - GitHub - [@MthoNtanzi](https://github.com/MthoNtanzi)
