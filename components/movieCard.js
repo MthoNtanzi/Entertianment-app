@@ -68,7 +68,6 @@ const movieCard = (item) => {
     cardDiv.appendChild(descriptionContainer);
 
     cardDiv.addEventListener("click", () => {
-        const id = item.id || item.title.replace(/\s+/g, '-');
         navigateTo(`#/movies/${item.title}`);
     });
 
