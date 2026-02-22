@@ -15,7 +15,6 @@ const routes = {
 };
 
 export const navigateTo = (route) => {
-    console.log('Navigating to:', route);
     
     // Don't navigate if it's the same route
     if (window.location.pathname === route) {
@@ -29,7 +28,6 @@ export const navigateTo = (route) => {
 
 export const loadInitialPage = () => {
     const route = window.location.pathname;
-    console.log('Loading initial page', route);
     loadPage(route);
 }
 
@@ -56,10 +54,8 @@ const loadPage = async (route) => {
     
     try {
         const page = await pageComponent();
-        console.log('Page returned:', page);
         if (page) {
             contentDiv.appendChild(page);
-            console.log('Page appended to content div');
         } else {
             console.error('Page component returned nothing for route:', route);
             // Fallback to home page
@@ -74,7 +70,6 @@ const loadPage = async (route) => {
 }
 
 window.addEventListener('popstate', (event) => {
-    console.log('Popstate triggered, pathname:', window.location.pathname);
     loadPage(window.location.pathname);
 });
 
