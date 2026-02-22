@@ -84,10 +84,10 @@ const navBar =(onNavigate)=>{
 
     //li * 4
     const linksConfig = [
-        { icon: homeIcon, route: "/" },
-        { icon: moviesIcon, route: "/movies" },
-        { icon: tvSeriesIcon, route: "/tv-series" },
-        { icon: bookmarkIcon, route: "/bookmarks" }
+        { icon: homeIcon, route: "#/" },
+        { icon: moviesIcon, route: "#/movies" },
+        { icon: tvSeriesIcon, route: "#/tv-series" },
+        { icon: bookmarkIcon, route: "#/bookmarks" }
     ];
         
     linksConfig.forEach(({ icon, route }) => {

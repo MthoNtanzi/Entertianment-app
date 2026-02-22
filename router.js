@@ -7,71 +7,18 @@ import movieDetailPage from './pages/movieDetailPage.js';
 
 
 const routes = {
-    '/': homePage,
-    '/movies': moviesPage,
-    '/tv-series': tvSeriesPage,
-    '/bookmarks': bookmarkedPage,
-    // '/profile': profilePage
+    '#/': homePage,
+    '#/movies': moviesPage,
+    '#/tv-series': tvSeriesPage,
+    '#/bookmarks': bookmarkedPage,
+    // '#/profile': profilePage
 };
 
 export const navigateTo = (route) => {
-    
-    // Don't navigate if it's the same route
-    if (window.location.pathname === route) {
-        return;
+    if (window.location.hash !== route) {
+        window.location.hash = route;
     }
-    
-    window.history.pushState({}, '', route);
-    updateActiveNav(route);
-    loadPage(route);
 }
-
-export const loadInitialPage = () => {
-    const route = window.location.pathname;
-    loadPage(route);
-}
-
-const loadPage = async (route) => {
-    const contentDiv = document.getElementById('content');
-    
-    if (!contentDiv) {
-        console.error('Content div not found');
-        return;
-    }
-    
-    contentDiv.innerHTML = '';
-    
-    if (route.startsWith('/movies/')) {
-        const id = route.split('/')[2];
-        const page = movieDetailPage(id);
-        contentDiv.appendChild(page);
-        updateActiveNav(route);
-        return;
-    }
-
-    
-    const pageComponent = routes[route] || routes['/'];
-    
-    try {
-        const page = await pageComponent();
-        if (page) {
-            contentDiv.appendChild(page);
-        } else {
-            console.error('Page component returned nothing for route:', route);
-            // Fallback to home page
-            contentDiv.appendChild(routes['/']());
-        }
-    } catch (error) {
-        console.error('Error loading page:', error);
-        contentDiv.innerHTML = '<div>Error loading page</div>';
-    }
-
-    if (window.updateActiveNav) window.updateActiveNav(route);
-}
-
-window.addEventListener('popstate', (event) => {
-    loadPage(window.location.pathname);
-});
 
 const updateActiveNav = (route) => {
     document.querySelectorAll('#nav-items a').forEach(link => {
@@ -82,3 +29,43 @@ const updateActiveNav = (route) => {
         }
     });
 }
+
+export const loadInitialPage = () => {
+    const route = window.location.hash || '#/';
+    loadPage(route);
+}
+
+const loadPage = (route) => {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = '';
+    
+    if (route.startsWith('#/movies/')) {
+        const id = route.split('/')[2];
+        contentDiv.appendChild(movieDetailPage(id));
+        updateActiveNav(route);
+        return;
+    }
+
+    
+    const pageComponent = routes[route] || routes['#/'];
+    
+    try {
+        const page = pageComponent();
+        if (page) {
+            contentDiv.appendChild(page);
+        } else {
+            console.error('Page component returned nothing for route:', route);
+            // Fallback to home page
+            contentDiv.appendChild(routes['#/']());
+        }
+    } catch (error) {
+        console.error('Error loading page:', error);
+        contentDiv.innerHTML = '<div>Error loading page</div>';
+    }
+
+    window.updateActiveNav(route);
+}
+
+window.addEventListener('hashchange', () => {
+    loadPage(window.location.hash);
+});
