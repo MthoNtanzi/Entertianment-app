@@ -56,6 +56,10 @@ main {
     margin-block: 1.2em;
 }
 
+.movieDescriptionContainer{
+    margin-top: 2px;
+}
+
 @media(max-width: 768px){
     .movieCardsContainer{
         grid-template-columns: repeat(3, 1fr);

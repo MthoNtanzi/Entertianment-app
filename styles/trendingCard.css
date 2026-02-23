@@ -35,3 +35,15 @@
     height: 22px;
     display: block;
 }
+
+@media(max-width: 376px) {
+    .trendingCardContainer{
+        height: 140px;
+        width: 240px;
+    }
+
+    .bookmarkImg {
+        width: 10px;
+        height: 10px;
+    }
+}
