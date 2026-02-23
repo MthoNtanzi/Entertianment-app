@@ -26,7 +26,7 @@ const movieCard = (item) => {
 
     // Description container, containing movie name and description
     const descriptionContainer = document.createElement('div');
-    descriptionContainer.classList = "movieDescriptionContainer";
+    descriptionContainer.classList.add("movieDescriptionContainer");
 
     const movieDescription = document.createElement('p');
     movieDescription.classList.add("movieDescription");

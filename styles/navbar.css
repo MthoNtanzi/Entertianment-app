@@ -50,3 +50,30 @@
     border: 1px white solid;
     border-radius: 50%;
 }
+
+@media (max-width: 768px){
+    #navBar {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        padding: 1em 1.5em;
+    }
+
+    #nav-items {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+        gap: 1em;
+    }
+
+    .list-nav-items {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 375px){
+    #navBar {
+        border-radius: 0;
+    }
+}

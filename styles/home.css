@@ -51,7 +51,23 @@ main {
 /* ============  Movies Container ============ */
 .movieCardsContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 270px);
-    justify-content: start;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
+    margin-block: 1.2em;
+}
+
+@media(max-width: 768px){
+    .movieCardsContainer{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        font-size: 0.6em;
+    }
+}
+
+@media(max-width: 375px){
+    .movieCardsContainer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        font-size: 0.6em;
+    }
 }
