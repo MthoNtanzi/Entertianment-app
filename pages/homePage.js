@@ -1,4 +1,4 @@
-import { getTrendingContent, getAllContent } from '../api.js';
+import { getTrendingContent, getAllContent } from '../dataService.js';
 import createHeadings from '../components/functions.js';
 import searchBar from '../components/searchBar.js';
 import trendingRow from '../components/trendingRow.js';

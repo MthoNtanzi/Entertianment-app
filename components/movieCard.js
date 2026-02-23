@@ -1,4 +1,5 @@
 import { navigateTo } from '../router.js';
+import { toggleBookmark } from '../dataService.js';
 
 const movieCard = (item) => {
     
@@ -12,6 +13,15 @@ const movieCard = (item) => {
     // Wrapper for the boomkark icon... for styling
     const bookmarkWrapper = document.createElement('div');
     bookmarkWrapper.classList.add('bookmarkImgWrapper');
+    bookmarkWrapper.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevent navigation
+
+        toggleBookmark(item.title);
+
+        // Re-render current route
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+    });
+
 
     const bookmarkImg = document.createElement('img');
     bookmarkImg.src = item.isBookmarked 

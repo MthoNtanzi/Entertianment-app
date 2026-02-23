@@ -1,4 +1,4 @@
-import { getBookmarked } from "../api.js";
+import { getBookmarked } from "../dataService.js";
 import createHeadings from "../components/functions.js";
 import searchBar from "../components/searchBar.js";
 import movieGrid from "../components/movieGrid.js";

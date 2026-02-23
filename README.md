@@ -42,7 +42,7 @@ project/
 ├── index.html
 ├── app.js               # Entry point
 ├── router.js            # Client-side router
-├── api.js               # Data access layer (reads from data.js)
+├── dataService.js               # Data access layer (reads from data.js)
 ├── data.js              # Local data (replaces external API)
 ├── pages/
 │   ├── homePage.js
