@@ -17,7 +17,7 @@ const moviesPage = () => {
 
     main.appendChild(searchBar((query) => {
         const filtered = query
-            ? allMovies.filter(m => m.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+            ? allMovies.filter(movie => movie.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
             : allMovies;
         
         renderMovies(filtered);

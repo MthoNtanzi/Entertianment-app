@@ -19,11 +19,4 @@ const homePage = () => {
     return main;
 }
 
-// const homePage = () => {
-//     console.log('homePage function called');
-//     const main = document.createElement('main');
-//     main.innerHTML = '<h1 style="color:white">Hello</h1>';
-//     return main;
-// };
-
 export default homePage;
