@@ -15,14 +15,20 @@ const tvSeriesPage = () => {
         seriesWrapper.appendChild(movieGrid(items));
     };
 
+    const heading = createHeadings("TV Series");
+
     main.appendChild(searchBar((query) => {
         const filtered = query
             ? allSeries.filter(item =>item.title.toLowerCase().includes(query.toLowerCase()))
             : allSeries;
+        
+        heading.textContent = query
+        ? `Found ${filtered.length} result${filtered.length !== 1 ? 's' : ''} for '${query}'`
+        : 'TV Series';
 
         renderSeries(filtered);
     }));
-    main.appendChild(createHeadings("TV Series"));
+    main.appendChild(heading);
 
     renderSeries(allSeries);
     main.appendChild(seriesWrapper);

@@ -13,6 +13,8 @@ const moviesPage = () => {
         movieWrapper.appendChild(movieGrid(items));
     }
 
+    const heading = createHeadings("Movies");
+
     const allMovies = getMovies();
 
     main.appendChild(searchBar((query) => {
@@ -20,10 +22,14 @@ const moviesPage = () => {
             ? allMovies.filter(movie => movie.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
             : allMovies;
         
+        heading.textContent = query
+        ? `Found ${filtered.length} result${filtered.length !== 1 ? 's' : ''} for '${query}'`
+        : 'Movies';
+        
         renderMovies(filtered);
     }));
 
-    main.appendChild(createHeadings("Movies"));
+    main.appendChild(heading);
 
     renderMovies(allMovies);
     main.appendChild(movieWrapper);
