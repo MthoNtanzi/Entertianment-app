@@ -10,7 +10,7 @@
     width: 50px;
 }
 
-#searchVal{
+#searchbar input{
     border: none;
     background: transparent;
     outline: none;

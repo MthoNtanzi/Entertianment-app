@@ -1,12 +1,18 @@
-const searchBar = () => {
-    const searchBar = document.createElement('div');
-    searchBar.innerHTML = `
-        <img src='/assets/icon-search.svg' alt='search'/>
-        <input type='text' id='searchVal' placeholder='Search for movies or TV series'/>
-    `;
-    searchBar.id = "searchbar"
+const searchBar = (onSearch) => {
+    const searchBarWrapper = document.createElement('div');
+    searchBarWrapper.id = "searchbar";
 
-    return searchBar
+    const input = document.createElement('input');
+    input.type = "text";
+    input.placeholder = "Search for movies or TV series";
+
+    input.addEventListener("input", (e) => {
+        onSearch(e.target.value.trim());
+    });
+
+    searchBarWrapper.appendChild(input);
+
+    return searchBarWrapper
 }
 
 export default searchBar;

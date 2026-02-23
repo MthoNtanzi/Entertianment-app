@@ -5,15 +5,27 @@ import movieGrid from "../components/movieGrid.js";
 
 const moviesPage = () => {
     const main = document.createElement('main');
+    const movieWrapper = document.createElement('div');
+    movieWrapper.classList.add("movieWrapper");
+
+    const renderMovies = (items) => {
+        movieWrapper.innerHTML = '';
+        movieWrapper.appendChild(movieGrid(items));
+    }
 
     const allMovies = getMovies();
 
-    main.appendChild(searchBar());
+    main.appendChild(searchBar((query) => {
+        const filtered = query
+            ? allMovies.filter(m => m.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+            : allMovies;
+        
+        renderMovies(filtered);
+    }));
+
     main.appendChild(createHeadings("Movies"));
 
-    const movieWrapper = document.createElement('div');
-    movieWrapper.classList.add("movieWrapper");
-    movieWrapper.appendChild(movieGrid(allMovies));
+    renderMovies(allMovies);
     main.appendChild(movieWrapper);
 
     return main
