@@ -22,6 +22,8 @@ const movieCard = (item) => {
         window.dispatchEvent(new HashChangeEvent("hashchange"));
     });
 
+    const playButton = document.createElement('div');
+    playButton.classList.add('playButton');
 
     const bookmarkImg = document.createElement('img');
     bookmarkImg.src = item.isBookmarked 
@@ -31,8 +33,19 @@ const movieCard = (item) => {
     bookmarkImg.classList.add('bookmarkImg');
 
     bookmarkWrapper.appendChild(bookmarkImg);
+    
+    const playImg = document.createElement('img');
+    const playtext = document.createElement('p');
+
+    playImg.src = "assets/icon-play.svg";
+    playtext.innerText = 'Play';
+
+    playButton.appendChild(playImg);
+    playButton.appendChild(playtext);
 
     movieDiv.appendChild(bookmarkWrapper);
+    movieDiv.appendChild(playButton);
+
 
     // Description container, containing movie name and description
     const descriptionContainer = document.createElement('div');

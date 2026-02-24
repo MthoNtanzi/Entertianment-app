@@ -4,7 +4,28 @@
     width: 100%;
 }
 
+.playButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #97979780;
+    width: fit-content;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 25px;
+}
+
 .movieImg{
+    position: relative;
     padding: 20px;
     height: 174px;
     border-radius: 10px;
@@ -13,6 +34,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.movieImg:hover .playButton {
+    opacity: 1;
+    visibility: visible;
 }
 
 .movieImg .bookmarkImgWrapper{
