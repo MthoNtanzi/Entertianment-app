@@ -1,0 +1,68 @@
+.movieDetailPage {
+    padding: 2rem;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.backBtn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.backBtn:hover {
+    background: white;
+    color: black;
+}
+
+.movieDetailHero {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.movieDetailHero .bookmarkImgWrapper {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.movieDetailInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.movieDetailTitle {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.movieDetailMeta {
+    color: #5a698f;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .movieDetailHero {
+        height: 220px;
+    }
+
+    .movieDetailTitle {
+        font-size: 1.5rem;
+    }
+}

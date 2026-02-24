@@ -11,6 +11,10 @@ const saveBookmarks = (bookmarks) => {
     localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
 }
 
+export const getByTitle = (title) => {
+    return data.find(item => item.title === title);
+};
+
 export const getTrendingContent = () => {
     return applyBookmarks(
         data.filter(item => item.isTrending)
