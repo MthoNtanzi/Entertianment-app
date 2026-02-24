@@ -30,7 +30,8 @@ export const getTVSeries = () => {
 };
 
 export const getBookmarked = () => {
-    return applyBookmarks(data.filter(item => item.isBookmarked));
+    const bookmarks = getStoredBookmarks();
+    return applyBookmarks(data.filter(item => bookmarks.includes(item.title)));
 };
 
 export const toggleBookmark = (title) => {

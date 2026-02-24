@@ -1,4 +1,5 @@
 import { navigateTo } from '../router.js';
+import { toggleBookmark } from '../dataService.js';
 
 const trendingCard = (item) => {
     const cardDiv = document.createElement('div');
@@ -9,11 +10,34 @@ const trendingCard = (item) => {
     const bookmarkWrapper = document.createElement('div');
     bookmarkWrapper.classList.add('bookmarkImgWrapper');
 
+    bookmarkWrapper.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevent navigation
+
+        toggleBookmark(item.title);
+
+        // Re-render current route
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+    });
+
     const bookmarkImg = document.createElement('img');
     bookmarkImg.src = item.isBookmarked 
         ? 'assets/icon-bookmark-full.svg' 
         : 'assets/icon-bookmark-empty.svg';
     bookmarkImg.alt = "bookmark";
+    bookmarkImg.classList.add('bookmarkImg');
+
+    const playButton = document.createElement('div');
+    playButton.classList.add('playButton');
+    
+    const playImg = document.createElement('img');
+    const playtext = document.createElement('p');
+
+    playImg.src = "assets/icon-play.svg";
+    playtext.innerText = 'Play';
+
+    playButton.appendChild(playImg);
+    playButton.appendChild(playtext);
+
     bookmarkImg.classList.add('bookmarkImg');
 
     bookmarkWrapper.appendChild(bookmarkImg);
@@ -58,6 +82,7 @@ const trendingCard = (item) => {
     descriptionContainer.appendChild(movieName);
 
     cardDiv.appendChild(bookmarkWrapper);
+    cardDiv.appendChild(playButton)
     cardDiv.appendChild(descriptionContainer);
 
     // For routing
