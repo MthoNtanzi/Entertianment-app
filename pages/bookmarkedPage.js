@@ -17,18 +17,20 @@ const bookmarkedPage = () => {
 
     main.appendChild(searchBar());
 
-    // Movies section
-    main.appendChild(createHeadings(bookmarkedMovies.length > 0 ? "Bookmarked Movies" : "No Bookmarked Movies"));
-    if (bookmarkedMovies.length > 0) {
-        trendingMovieWrapper.appendChild(movieGrid(bookmarkedMovies));
-        main.appendChild(trendingMovieWrapper);
-    }
+    if (allBookmarked.length === 0) {
+        main.appendChild(createHeadings("No Bookmarks"));
+    } else {
+        if (bookmarkedMovies.length > 0) {
+            main.appendChild(createHeadings("Bookmarked Movies"));
+            trendingMovieWrapper.appendChild(movieGrid(bookmarkedMovies));
+            main.appendChild(trendingMovieWrapper);
+        }
 
-    // TV Series section
-    main.appendChild(createHeadings(bookmarkedSeries.length > 0 ? "Bookmarked TV Series" : "No Bookmarked TV Series"));
-    if (bookmarkedSeries.length > 0) {
-        trendingSeriesWrapper.appendChild(movieGrid(bookmarkedSeries));
-        main.appendChild(trendingSeriesWrapper);
+        if (bookmarkedSeries.length > 0) {
+            main.appendChild(createHeadings("Bookmarked TV Series"));
+            trendingSeriesWrapper.appendChild(movieGrid(bookmarkedSeries));
+            main.appendChild(trendingSeriesWrapper);
+        }
     }
 
     return main;
