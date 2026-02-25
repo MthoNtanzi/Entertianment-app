@@ -16,14 +16,22 @@ const bookmarkedPage = () => {
     trendingSeriesWrapper.classList.add("trendingSeriesWrapper");
 
     main.appendChild(searchBar());
-    main.appendChild(createHeadings("Bookmarked Movies"));
-    trendingMovieWrapper.appendChild(movieGrid(bookmarkedMovies));
-    main.appendChild(trendingMovieWrapper);
-    main.appendChild(createHeadings("Bookmarked TV Series"));
-    trendingSeriesWrapper.appendChild(movieGrid(bookmarkedSeries));
-    main.appendChild(trendingSeriesWrapper);
 
-    return main
+    // Movies section
+    main.appendChild(createHeadings(bookmarkedMovies.length > 0 ? "Bookmarked Movies" : "No Bookmarked Movies"));
+    if (bookmarkedMovies.length > 0) {
+        trendingMovieWrapper.appendChild(movieGrid(bookmarkedMovies));
+        main.appendChild(trendingMovieWrapper);
+    }
+
+    // TV Series section
+    main.appendChild(createHeadings(bookmarkedSeries.length > 0 ? "Bookmarked TV Series" : "No Bookmarked TV Series"));
+    if (bookmarkedSeries.length > 0) {
+        trendingSeriesWrapper.appendChild(movieGrid(bookmarkedSeries));
+        main.appendChild(trendingSeriesWrapper);
+    }
+
+    return main;
 }
 
 export default bookmarkedPage;
