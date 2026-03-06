@@ -2,7 +2,6 @@ import homePage from "./pages/homePage.js";
 import moviesPage from "./pages/moviesPage.js"
 import tvSeriesPage from "./pages/tvSeriesPage.js"
 import bookmarkedPage from "./pages/bookmarkedPage.js";
-// import profilePage from "./pages/profile.js";
 import movieDetailPage from './pages/movieDetailPage.js';
 
 
@@ -11,7 +10,6 @@ const routes = {
     '#/movies': moviesPage,
     '#/tv-series': tvSeriesPage,
     '#/bookmarks': bookmarkedPage,
-    // '#/profile': profilePage
 };
 
 export const navigateTo = (route) => {
